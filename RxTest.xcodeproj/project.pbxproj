@@ -53,42 +53,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A778108829113F3400889418 /* VC */ = {
+		A7A1EC2D29117BA90014BEED /* D-Day View */ = {
 			isa = PBXGroup;
 			children = (
+				A7A1EC2F29117C0F0014BEED /* View */,
+				A7A1EC3029117C1C0014BEED /* ViewModel */,
+				A7A1EC2E29117C010014BEED /* Entites */,
 			);
-			name = VC;
+			path = "D-Day View";
 			sourceTree = "<group>";
 		};
-		A778108929113F3800889418 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A7F46E9F290EC63400227B85 /* D_DayViewModel.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		A778108A29113F6400889418 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		A778108B2911400A00889418 /* Entities */ = {
+		A7A1EC2E29117C010014BEED /* Entites */ = {
 			isa = PBXGroup;
 			children = (
 				A7F46EA12910FA6600227B85 /* D_DayCelData.swift */,
 			);
-			name = Entities;
+			path = Entites;
+			sourceTree = "<group>";
+		};
+		A7A1EC2F29117C0F0014BEED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7F46E97290EB3CE00227B85 /* D_DayViewController.swift */,
+				A7F46E99290EB49D00227B85 /* D_DayViewCell.swift */,
+				A7F46E9D290EBADF00227B85 /* D_DayAddViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7A1EC3029117C1C0014BEED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7F46E9F290EC63400227B85 /* D_DayViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A7B7BEC4290AC1F900EEDEBA /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				A7D6C8B42909305C0044845F /* MainViewController.swift */,
-				A7F46E95290EB38F00227B85 /* Calculator View */,
 				A7F46E96290EB3A300227B85 /* D-Day View */,
+				A7F46E95290EB38F00227B85 /* Calculator View */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -133,13 +139,7 @@
 		A7F46E96290EB3A300227B85 /* D-Day View */ = {
 			isa = PBXGroup;
 			children = (
-				A778108B2911400A00889418 /* Entities */,
-				A778108A29113F6400889418 /* Model */,
-				A778108929113F3800889418 /* ViewModel */,
-				A778108829113F3400889418 /* VC */,
-				A7F46E97290EB3CE00227B85 /* D_DayViewController.swift */,
-				A7F46E99290EB49D00227B85 /* D_DayViewCell.swift */,
-				A7F46E9D290EBADF00227B85 /* D_DayAddViewController.swift */,
+				A7A1EC2D29117BA90014BEED /* D-Day View */,
 			);
 			name = "D-Day View";
 			sourceTree = "<group>";
