@@ -20,7 +20,7 @@ final class CalculatorViewController: UIViewController {
     
     private var clickedSign: String = "none"
     
-    private lazy var contentView = UIView()
+    private lazy var contentsView = UIView()
     
     private lazy var inputLabel: paddingLabel = {
         let label = paddingLabel(padding: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 10))
@@ -340,6 +340,20 @@ final class CalculatorViewController: UIViewController {
         return stackView
     }()
     
+    private lazy var backBtn: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("돌아가기", for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 10.0
+        button.layer.borderColor = UIColor.label.cgColor
+        button.contentEdgeInsets = .init(top: 5, left: 10, bottom: 5, right: 10)
+        
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -423,6 +437,11 @@ private extension CalculatorViewController {
         changeSignBtn.rx.tap.subscribe(onNext: {
             self.changeSign()
         }).disposed(by: disposeBag)
+        
+        backBtn.rx.tap.subscribe(onNext: {
+//            self.returnMenu()
+            self.dismiss(animated: true)
+        }).disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -430,19 +449,20 @@ private extension CalculatorViewController {
     }
     
     private func layout() {
-        view.addSubview(contentView)
+        view.addSubview(contentsView)
         [
             inputLabel,
             firstLineStackView,
             secondLineStackView,
             thirdLineStackView,
-            fourthLineStackView
-        ].forEach{contentView.addSubview($0)}
+            fourthLineStackView,
+            backBtn
+        ].forEach{contentsView.addSubview($0)}
         
-        contentView.layer.cornerRadius = 10.0
-        contentView.layer.borderWidth = 1
+        contentsView.layer.cornerRadius = 10.0
+        contentsView.layer.borderWidth = 1
         
-        contentView.snp.makeConstraints{
+        contentsView.snp.makeConstraints{
             $0.top.equalTo(view.safeAreaInsets).inset(48.0)
             $0.bottom.equalTo(view.safeAreaInsets).inset(24.0)
             $0.leading.trailing.equalTo(view.safeAreaInsets)
@@ -479,10 +499,24 @@ private extension CalculatorViewController {
             $0.leading.trailing.equalToSuperview().inset(8.0)
         }
         
+        backBtn.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
     }
 }
 
 private extension CalculatorViewController {
+    
+    private func returnMenu() {
+        self.dismiss(animated: true)
+//        let nextVC = CalculatorViewController()
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC,animated: true)
+    }
+    
     private func changeSign() {
         if clickedSign != "none" {
             self.secondTextStack = "\(Double(secondTextStack)! * -1)"
