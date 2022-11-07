@@ -25,6 +25,24 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private lazy var choiceBtnStackview: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 4.0
+        
+        [
+            choiceCalculatorBtn,
+            choiceDDayBtn,
+            choiceSelectAreaBtn
+            
+        ].forEach { stackView.addArrangedSubview($0) }
+        
+        return stackView
+    }()
+    
     private lazy var choiceCalculatorBtn: UIButton = {
         let button = UIButton()
         button.setTitle("계산기", for: .normal)
@@ -45,7 +63,23 @@ class MainViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 10.0
         button.layer.borderColor = UIColor.label.cgColor
-//        button.contentEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
+        
+        return button
+    }()
+    
+    private lazy var choiceSelectAreaBtn: ChangeButtonClicked = {
+        let button = ChangeButtonClicked()
+        
+        button.isSizeChangeBtn = true
+        
+        button.setTitle("랜덤여행", for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
+        button.backgroundColor = .systemBackground
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 10.0
+        button.layer.borderColor = UIColor.label.cgColor
+        button.contentEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
         
         return button
     }()
@@ -59,16 +93,17 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     private func bind() {
-        choiceCalculatorBtn.rx.tap
-            .bind{
-                print("Clicked Calculator")
-                self.openCalculator()
-            }
-            .disposed(by: disposeBag)
+        
+        choiceCalculatorBtn.rx.tap.bind{
+            self.openCalculator()
+        }.disposed(by: disposeBag)
         
         choiceDDayBtn.rx.tap.bind {
-            print("Clicked D-Day")
             self.openD_Day()
+        }.disposed(by: disposeBag)
+        
+        choiceSelectAreaBtn.rx.tap.bind {
+            self.openSelectArea()
         }.disposed(by: disposeBag)
         
     }
@@ -86,8 +121,7 @@ private extension MainViewController {
         
         [
             titleLabel,
-            choiceCalculatorBtn,
-            choiceDDayBtn
+            choiceBtnStackview
         ].forEach{contentView.addSubview($0)}
 
         titleLabel.snp.makeConstraints {
@@ -95,24 +129,18 @@ private extension MainViewController {
             $0.centerX.equalToSuperview()
         }
         
-        choiceCalculatorBtn.snp.makeConstraints {
+        choiceBtnStackview.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16.0)
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
+            $0.bottom.leading.trailing.equalToSuperview()
+            
         }
         
-        choiceDDayBtn.snp.makeConstraints {
-            $0.top.equalTo(choiceCalculatorBtn.snp.bottom
-            ).offset(16.0)
-            $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
     }
 }
 
 private extension MainViewController {
     private func openCalculator() {
-//        self.dismiss(animated: true)
         let nextVC = CalculatorViewController()
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
@@ -121,12 +149,15 @@ private extension MainViewController {
     
     private func openD_Day() {
         let nextVC = UINavigationController(rootViewController: D_DayViewController())
-    
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
-//        nextVC.bind(D_DayViewModel(itemArray: [Member(item1: "123", item2: "SSS"),
-//                                               Member(item1: "456", item2: "KKK"),
-//                                               Member(item1: "789", item2: "LLL")])) //itemArray: ["1","2","3"], itemArray2: ["kkk", "yyy", "jjj"]))
+        self.present(nextVC,animated: true)
+    }
+    
+    private func openSelectArea() {
+        let nextVC = UINavigationController(rootViewController: SelectAreaMainViewController())
+        nextVC.modalTransitionStyle = .coverVertical
+        nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC,animated: true)
     }
 }

@@ -149,6 +149,7 @@ final class D_DayAddViewController: UIViewController {
         saveBtn.rx.tap
             .subscribe(onNext : {
                 self.saveData()
+                self.dismiss(animated: true)
             }).disposed(by: disposeBag)
         
         selectFirstDatePicker.rx.date // 종료일이 시작일보다 앞으로 갈 수 없게 만든거임
@@ -248,45 +249,14 @@ final class D_DayAddViewController: UIViewController {
 
 private extension D_DayAddViewController  {
     private func saveData()  {
-        
         guard let titleName = self.mainTitleTxf.text else { return }
         
         if titleName.isEmpty {
             return
         }
         
-        if let dataArray = self.userDefaults.object(forKey: "dataName") as? [String] {
-            var titleTxf = dataArray
-            titleTxf.append(titleName)
-            self.userDefaults.set(titleTxf, forKey: "dataName")
-        }else {
-            let titleTxf = [titleName]
-            self.userDefaults.set(titleTxf, forKey: "dataName")
-        }
-
-        let encoder = JSONEncoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        var firstTimeDate = String()
-        var secondTimeDate = String()
-
-        selectFirstDatePicker.rx.value
-            .subscribe(onNext: { date in
-                firstTimeDate = dateFormatter.string(from: date)
-            }).disposed(by: disposeBag)
-
-        selectSecondDatePicker.rx.value.subscribe(onNext: { date in
-            secondTimeDate = dateFormatter.string(from: date)
-        }).disposed(by: disposeBag)
-
-        let collectData = MainData(startDate: firstTimeDate, endDate: secondTimeDate, titleLabel: titleName)
-
-        guard let checkData = self.userDefaults.object(forKey: titleName) as? Data else { // 없을 경우 이리 들어갈거임
-            if let encoded = try? encoder.encode(collectData) {
-                self.userDefaults.setValue(encoded, forKey: titleName)
-            }
-            return
-        }
+        let saveResult: String = D_DayViewModel().addCellData(titleName, selectFirstDatePicker.date, selectSecondDatePicker.date)
+        
+        print(saveResult) // 저장 유무를 이거로 확인해도 됨
     }
 }

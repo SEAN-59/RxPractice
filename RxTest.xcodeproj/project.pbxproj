@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A722A9E1291962DE002FA661 /* SelectAreaSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722A9E0291962DE002FA661 /* SelectAreaSettingCell.swift */; };
+		A72F36F72917E86300B939FF /* SelectAreaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72F36F62917E86300B939FF /* SelectAreaListCell.swift */; };
+		A72F36FC2917F84500B939FF /* ChangeButtonClicked.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72F36FB2917F84500B939FF /* ChangeButtonClicked.swift */; };
+		A72F37002918349E00B939FF /* SelectAreaStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72F36FF2918349E00B939FF /* SelectAreaStartViewController.swift */; };
+		A72F37032918354D00B939FF /* SelectAreaRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72F37022918354D00B939FF /* SelectAreaRuleViewController.swift */; };
+		A72F37062918DB9000B939FF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A72F37052918DB9000B939FF /* Lottie */; };
+		A72F37092918E2C800B939FF /* fastTrain.json in Resources */ = {isa = PBXBuildFile; fileRef = A72F37082918E2C800B939FF /* fastTrain.json */; };
+		A72F370B2918EAFF00B939FF /* mapSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = A72F370A2918EAFE00B939FF /* mapSearch.json */; };
+		A72F370D29194B1B00B939FF /* setCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72F370C29194B1B00B939FF /* setCheck.storyboard */; };
+		A78D71E62916B87F002554D2 /* SelectAreaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D71E52916B87F002554D2 /* SelectAreaMainViewController.swift */; };
+		A78D71E82916B89B002554D2 /* SelectAreaSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D71E72916B89B002554D2 /* SelectAreaSettingViewController.swift */; };
+		A78D71EA2916B8C7002554D2 /* SelectAreaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78D71E92916B8C7002554D2 /* SelectAreaListViewController.swift */; };
 		A7B7BEC3290AC1CC00EEDEBA /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B7BEC2290AC1CC00EEDEBA /* CalculatorViewController.swift */; };
 		A7D6C8A12909301B0044845F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6C8A02909301B0044845F /* AppDelegate.swift */; };
 		A7D6C8A32909301B0044845F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6C8A22909301B0044845F /* SceneDelegate.swift */; };
@@ -24,6 +36,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A722A9E0291962DE002FA661 /* SelectAreaSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaSettingCell.swift; sourceTree = "<group>"; };
+		A72F36F62917E86300B939FF /* SelectAreaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaListCell.swift; sourceTree = "<group>"; };
+		A72F36FB2917F84500B939FF /* ChangeButtonClicked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeButtonClicked.swift; sourceTree = "<group>"; };
+		A72F36FF2918349E00B939FF /* SelectAreaStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaStartViewController.swift; sourceTree = "<group>"; };
+		A72F37022918354D00B939FF /* SelectAreaRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaRuleViewController.swift; sourceTree = "<group>"; };
+		A72F37082918E2C800B939FF /* fastTrain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fastTrain.json; sourceTree = "<group>"; };
+		A72F370A2918EAFE00B939FF /* mapSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapSearch.json; sourceTree = "<group>"; };
+		A72F370C29194B1B00B939FF /* setCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = setCheck.storyboard; sourceTree = "<group>"; };
+		A78D71E52916B87F002554D2 /* SelectAreaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaMainViewController.swift; sourceTree = "<group>"; };
+		A78D71E72916B89B002554D2 /* SelectAreaSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaSettingViewController.swift; sourceTree = "<group>"; };
+		A78D71E92916B8C7002554D2 /* SelectAreaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAreaListViewController.swift; sourceTree = "<group>"; };
 		A7B7BEC2290AC1CC00EEDEBA /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		A7D6C89D2909301B0044845F /* RxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6C8A02909301B0044845F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,28 +70,149 @@
 				A7D6C8BD290930BE0044845F /* SnapKit in Frameworks */,
 				A7D6C8BA290930AA0044845F /* RxSwift in Frameworks */,
 				A7D6C8B8290930AA0044845F /* RxCocoa in Frameworks */,
+				A72F37062918DB9000B939FF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A722A9E229197062002FA661 /* Setting ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Setting ViewModel";
+			sourceTree = "<group>";
+		};
+		A72F36F22917E80F00B939FF /* Setting View */ = {
+			isa = PBXGroup;
+			children = (
+				A78D71E72916B89B002554D2 /* SelectAreaSettingViewController.swift */,
+				A722A9E229197062002FA661 /* Setting ViewModel */,
+				A72F36F32917E82500B939FF /* Cell */,
+			);
+			path = "Setting View";
+			sourceTree = "<group>";
+		};
+		A72F36F32917E82500B939FF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A722A9E0291962DE002FA661 /* SelectAreaSettingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A72F36F42917E83200B939FF /* List View */ = {
+			isa = PBXGroup;
+			children = (
+				A78D71E92916B8C7002554D2 /* SelectAreaListViewController.swift */,
+				A72F36F52917E83E00B939FF /* Cell */,
+			);
+			path = "List View";
+			sourceTree = "<group>";
+		};
+		A72F36F52917E83E00B939FF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A72F36F62917E86300B939FF /* SelectAreaListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A72F36FA2917F77800B939FF /* Change UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A72F36FD2918246A00B939FF /* UIButton */,
+			);
+			path = "Change UIComponents";
+			sourceTree = "<group>";
+		};
+		A72F36FD2918246A00B939FF /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				A72F36FB2917F84500B939FF /* ChangeButtonClicked.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		A72F36FE2918348A00B939FF /* Start View */ = {
+			isa = PBXGroup;
+			children = (
+				A72F36FF2918349E00B939FF /* SelectAreaStartViewController.swift */,
+			);
+			path = "Start View";
+			sourceTree = "<group>";
+		};
+		A72F37012918353F00B939FF /* Rule View */ = {
+			isa = PBXGroup;
+			children = (
+				A72F37022918354D00B939FF /* SelectAreaRuleViewController.swift */,
+			);
+			path = "Rule View";
+			sourceTree = "<group>";
+		};
+		A72F37072918E27D00B939FF /* Animation JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A72F37082918E2C800B939FF /* fastTrain.json */,
+				A72F370A2918EAFE00B939FF /* mapSearch.json */,
+			);
+			path = "Animation JSON";
+			sourceTree = "<group>";
+		};
+		A78D71E12916B7B9002554D2 /* SelectArea View */ = {
+			isa = PBXGroup;
+			children = (
+				A72F37072918E27D00B939FF /* Animation JSON */,
+				A78D71E22916B7E6002554D2 /* View */,
+				A78D71E32916B80D002554D2 /* ViewModel */,
+				A78D71E42916B833002554D2 /* Entities */,
+			);
+			path = "SelectArea View";
+			sourceTree = "<group>";
+		};
+		A78D71E22916B7E6002554D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A78D71E52916B87F002554D2 /* SelectAreaMainViewController.swift */,
+				A72F36FE2918348A00B939FF /* Start View */,
+				A72F36F42917E83200B939FF /* List View */,
+				A72F36F22917E80F00B939FF /* Setting View */,
+				A72F37012918353F00B939FF /* Rule View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A78D71E32916B80D002554D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A78D71E42916B833002554D2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		A7A1EC2D29117BA90014BEED /* D-Day View */ = {
 			isa = PBXGroup;
 			children = (
 				A7A1EC2F29117C0F0014BEED /* View */,
 				A7A1EC3029117C1C0014BEED /* ViewModel */,
-				A7A1EC2E29117C010014BEED /* Entites */,
+				A7A1EC2E29117C010014BEED /* Entities */,
 			);
 			path = "D-Day View";
 			sourceTree = "<group>";
 		};
-		A7A1EC2E29117C010014BEED /* Entites */ = {
+		A7A1EC2E29117C010014BEED /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				A7F46EA12910FA6600227B85 /* D_DayCelData.swift */,
 			);
-			path = Entites;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		A7A1EC2F29117C0F0014BEED /* View */ = {
@@ -93,7 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				A7D6C8B42909305C0044845F /* MainViewController.swift */,
-				A7F46E96290EB3A300227B85 /* D-Day View */,
+				A72F36FA2917F77800B939FF /* Change UIComponents */,
+				A78D71E12916B7B9002554D2 /* SelectArea View */,
+				A7A1EC2D29117BA90014BEED /* D-Day View */,
 				A7F46E95290EB38F00227B85 /* Calculator View */,
 			);
 			name = Scene;
@@ -118,6 +264,7 @@
 		A7D6C89F2909301B0044845F /* RxTest */ = {
 			isa = PBXGroup;
 			children = (
+				A72F370C29194B1B00B939FF /* setCheck.storyboard */,
 				A7D6C8A02909301B0044845F /* AppDelegate.swift */,
 				A7D6C8A22909301B0044845F /* SceneDelegate.swift */,
 				A7B7BEC4290AC1F900EEDEBA /* Scene */,
@@ -134,14 +281,6 @@
 				A7B7BEC2290AC1CC00EEDEBA /* CalculatorViewController.swift */,
 			);
 			path = "Calculator View";
-			sourceTree = "<group>";
-		};
-		A7F46E96290EB3A300227B85 /* D-Day View */ = {
-			isa = PBXGroup;
-			children = (
-				A7A1EC2D29117BA90014BEED /* D-Day View */,
-			);
-			name = "D-Day View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +303,7 @@
 				A7D6C8B7290930AA0044845F /* RxCocoa */,
 				A7D6C8B9290930AA0044845F /* RxSwift */,
 				A7D6C8BC290930BE0044845F /* SnapKit */,
+				A72F37052918DB9000B939FF /* Lottie */,
 			);
 			productName = RxTest;
 			productReference = A7D6C89D2909301B0044845F /* RxTest.app */;
@@ -196,6 +336,7 @@
 			packageReferences = (
 				A7D6C8B6290930AA0044845F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A7D6C8BB290930BE0044845F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A72F37042918DB9000B939FF /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A7D6C89E2909301B0044845F /* Products */;
 			projectDirPath = "";
@@ -211,8 +352,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72F370D29194B1B00B939FF /* setCheck.storyboard in Resources */,
 				A7D6C8AD2909301C0044845F /* LaunchScreen.storyboard in Resources */,
 				A7D6C8AA2909301C0044845F /* Assets.xcassets in Resources */,
+				A72F370B2918EAFF00B939FF /* mapSearch.json in Resources */,
+				A72F37092918E2C800B939FF /* fastTrain.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,11 +370,19 @@
 				A7D6C8A12909301B0044845F /* AppDelegate.swift in Sources */,
 				A7D6C8A32909301B0044845F /* SceneDelegate.swift in Sources */,
 				A7F46E9E290EBADF00227B85 /* D_DayAddViewController.swift in Sources */,
+				A72F37032918354D00B939FF /* SelectAreaRuleViewController.swift in Sources */,
+				A72F36FC2917F84500B939FF /* ChangeButtonClicked.swift in Sources */,
+				A72F37002918349E00B939FF /* SelectAreaStartViewController.swift in Sources */,
+				A722A9E1291962DE002FA661 /* SelectAreaSettingCell.swift in Sources */,
 				A7B7BEC3290AC1CC00EEDEBA /* CalculatorViewController.swift in Sources */,
+				A72F36F72917E86300B939FF /* SelectAreaListCell.swift in Sources */,
+				A78D71E82916B89B002554D2 /* SelectAreaSettingViewController.swift in Sources */,
 				A7F46EA0290EC63400227B85 /* D_DayViewModel.swift in Sources */,
 				A7F46E98290EB3CE00227B85 /* D_DayViewController.swift in Sources */,
+				A78D71EA2916B8C7002554D2 /* SelectAreaListViewController.swift in Sources */,
 				A7F46EA22910FA6600227B85 /* D_DayCelData.swift in Sources */,
 				A7F46E9A290EB49D00227B85 /* D_DayViewCell.swift in Sources */,
+				A78D71E62916B87F002554D2 /* SelectAreaMainViewController.swift in Sources */,
 				A7D6C8B52909305C0044845F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +593,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A72F37042918DB9000B939FF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		A7D6C8B6290930AA0044845F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -460,6 +620,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A72F37052918DB9000B939FF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A72F37042918DB9000B939FF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		A7D6C8B7290930AA0044845F /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A7D6C8B6290930AA0044845F /* XCRemoteSwiftPackageReference "RxSwift" */;

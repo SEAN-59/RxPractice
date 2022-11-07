@@ -511,10 +511,6 @@ private extension CalculatorViewController {
     
     private func returnMenu() {
         self.dismiss(animated: true)
-//        let nextVC = CalculatorViewController()
-//        nextVC.modalTransitionStyle = .coverVertical
-//        nextVC.modalPresentationStyle = .fullScreen
-//        self.present(nextVC,animated: true)
     }
     
     private func changeSign() {

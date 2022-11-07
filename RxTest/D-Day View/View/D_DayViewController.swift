@@ -12,13 +12,21 @@ import RxCocoa
 
 final class D_DayViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    let viewModel = D_DayViewModel.sharedInstance
     
     private lazy var tableView = UITableView()
     
     private lazy var addBarBtn : UIBarButtonItem = {
        let barBtn = UIBarButtonItem()
         barBtn.image = UIImage(systemName: "folder.badge.plus")
+        barBtn.style = .plain
+        barBtn.target = self
+        barBtn.tintColor = .label
+        return barBtn
+    }()
+    
+    private lazy var backBarBtn : UIBarButtonItem = {
+       let barBtn = UIBarButtonItem()
+        barBtn.image = UIImage(systemName: "arrowshape.turn.up.backward")
         barBtn.style = .plain
         barBtn.target = self
         barBtn.tintColor = .label
@@ -33,11 +41,31 @@ final class D_DayViewController: UIViewController {
         layout()
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+    }
+    
+//    private let sectionSubject: BehaviorRelay = BehaviorRelay(value: Observable<[FinalData]>.self)
+    
     public func bind(){
+        
+        
         addBarBtn.rx.tap.subscribe(onNext: {
             self.openAddView()
         }).disposed(by: disposeBag)
-        viewModel.getCellData()
+        
+        backBarBtn.rx.tap.subscribe(onNext: {
+            self.dismiss(animated: true,completion: nil)
+        }).disposed(by: disposeBag)
+//
+//        sectionSubject.accept(D_DayViewModel().getCellData())
+//
+//        sectionSubject.bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+        
+        D_DayViewModel().getCellData()
             .bind(to: tableView.rx.items(cellIdentifier: D_DayViewCell.reuseIdentifier, cellType: D_DayViewCell.self)){ row, element, cell in
                 cell.cellStartDateLabel.text = "\(element.startDate)"
                 cell.cellEndDateLabel.text = "\(element.endDate)"
@@ -55,8 +83,17 @@ final class D_DayViewController: UIViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                self.tableView.deselectRow(at: indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated:true)
             }).disposed(by: disposeBag)
+        
+        tableView.rx.modelDeleted(FinalData.self)
+            .subscribe(onNext: { data in
+                print("\(data)")
+                D_DayViewModel().removeCellData(data.titleLabel)
+            }).disposed(by: disposeBag)
+        
+        
+        
         
     }
     
@@ -80,7 +117,9 @@ private extension D_DayViewController {
         navigationController?.navigationBar.barStyle = .default
         navigationItem.title = "D-Day"
         navigationItem.rightBarButtonItem = self.addBarBtn
+        navigationItem.leftBarButtonItem = self.backBarBtn
     }
+    
     private func openAddView() {
         let nextVC = D_DayAddViewController()
         nextVC.modalTransitionStyle = .coverVertical
