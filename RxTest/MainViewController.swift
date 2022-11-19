@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
     private lazy var choiceSelectAreaBtn: ChangeButtonClicked = {
         let button = ChangeButtonClicked()
         
-        button.isSizeChangeBtn = true
+        button.isSizeUpBtn = true
         
         button.setTitle("랜덤여행", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)

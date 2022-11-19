@@ -41,14 +41,6 @@ final class D_DayViewController: UIViewController {
         layout()
     }
     
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-    }
-    
-//    private let sectionSubject: BehaviorRelay = BehaviorRelay(value: Observable<[FinalData]>.self)
-    
     public func bind(){
         
         
@@ -59,18 +51,23 @@ final class D_DayViewController: UIViewController {
         backBarBtn.rx.tap.subscribe(onNext: {
             self.dismiss(animated: true,completion: nil)
         }).disposed(by: disposeBag)
-//
-//        sectionSubject.accept(D_DayViewModel().getCellData())
-//
-//        sectionSubject.bind(to: tableView.rx.items(dataSource: dataSource))
-//            .disposed(by: disposeBag)
+        
+        
+//        SelectAreaSettingViewModel().getCellData(false)
+//            .bind(to: tableView.rx.items(cellIdentifier: SelectAreaSettingCell.reuseIdentifier,
+//                                         cellType: SelectAreaSettingCell.self)){ row, element, cell in
+//                print("Collect")
+////                cell.cellNum = row
+//                cell.cellNameLabel.text = "\(element.cityName)"
+////                cell.cellCountLabel.text = "\(element.value)"
+//            }.disposed(by: disposeBag)
         
         D_DayViewModel().getCellData()
             .bind(to: tableView.rx.items(cellIdentifier: D_DayViewCell.reuseIdentifier, cellType: D_DayViewCell.self)){ row, element, cell in
                 cell.cellStartDateLabel.text = "\(element.startDate)"
                 cell.cellEndDateLabel.text = "\(element.endDate)"
                 cell.cellTitleLabel.text = "\(element.titleLabel)"
-                
+
                 if element.remainDate == 0 {
                     cell.remainDateLabel.text = "D - day"
                 } else if element.remainDate < 0 {

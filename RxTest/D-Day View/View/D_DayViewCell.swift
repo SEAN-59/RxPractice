@@ -25,7 +25,7 @@ final class D_DayViewCell: UITableViewCell {
         return label
     }()
     
-   lazy var cellEndDateLabel: UILabel = {
+    lazy var cellEndDateLabel: UILabel = {
         let label = UILabel()
         
         label.font = .systemFont(ofSize: 15.0, weight: .bold)
@@ -61,7 +61,6 @@ final class D_DayViewCell: UITableViewCell {
         return label
     }()
     
-//    private
     lazy var remainDateLabel: UILabel = {
         let label = UILabel()
         
@@ -98,11 +97,6 @@ final class D_DayViewCell: UITableViewCell {
             remainDateLabel
         ].forEach{addSubview($0)}
         
-//        cellTitleLabel.snp.makeConstraints {
-//            $0.leading.equalToSuperview().inset(16.0)
-//
-//        }
-        
         cellDateStackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(8.0)
             $0.leading.trailing.equalToSuperview().inset(16.0)
@@ -113,15 +107,9 @@ final class D_DayViewCell: UITableViewCell {
             $0.leading.equalToSuperview().inset(16.0)
         }
         remainDateLabel.snp.makeConstraints {
-//            $0.top.equalTo(cellTitleLabel.snp.bottom).offset(16.0)
             $0.trailing.equalToSuperview().inset(16.0)
             $0.bottom.equalToSuperview().inset(8.0)
         }
     }
 }
 
-extension D_DayViewCell {
-    public func setupData(_ data: String) {
-        print(data)
-    }
-}

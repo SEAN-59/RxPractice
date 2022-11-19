@@ -9,7 +9,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class SelectAreaMainViewController: UIViewController {
+
+//final
+class SelectAreaMainViewController: UIViewController {
+    
+    
     let disposeBag = DisposeBag()
     
     private lazy var contentsView = UIView()
@@ -44,7 +48,7 @@ final class SelectAreaMainViewController: UIViewController {
     
     private lazy var startBtn: ChangeButtonClicked = {
         let button = ChangeButtonClicked()
-        button.isSizeChangeBtn = true
+        button.isSizeUpBtn = true
         
         button.setTitle("START", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)
@@ -59,7 +63,7 @@ final class SelectAreaMainViewController: UIViewController {
     
     private lazy var listBtn: ChangeButtonClicked = {
         let button = ChangeButtonClicked()
-        button.isSizeChangeBtn = true
+        button.isSizeUpBtn = true
         
         button.setTitle("LIST", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)
@@ -74,7 +78,7 @@ final class SelectAreaMainViewController: UIViewController {
     
     private lazy var settingBtn: ChangeButtonClicked = {
         let button = ChangeButtonClicked()
-        button.isSizeChangeBtn = true
+        button.isSizeUpBtn = true
         
         button.setTitle("SETTING", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)
@@ -90,7 +94,7 @@ final class SelectAreaMainViewController: UIViewController {
     
     private lazy var ruleBtn: ChangeButtonClicked = {
         let button = ChangeButtonClicked()
-        button.isSizeChangeBtn = true
+        button.isSizeUpBtn = true
         
         button.setTitle("RULE", for: .normal)
         button.setTitleColor(UIColor.label, for: .normal)
@@ -102,6 +106,7 @@ final class SelectAreaMainViewController: UIViewController {
         
         return button
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bind()
@@ -118,7 +123,7 @@ private extension SelectAreaMainViewController {
         }.disposed(by: disposeBag)
         
         listBtn.rx.tap.bind{
-//            self.goView("List")
+            self.goView("List")
         }.disposed(by: disposeBag)
         
         settingBtn.rx.tap.bind{
@@ -127,6 +132,15 @@ private extension SelectAreaMainViewController {
         
         ruleBtn.rx.tap.bind{
 //            self.goView("Rule")
+            let day = "2022-01-01"
+            let dateFormatter = DateFormatter()
+            
+            let dateFormatter2 = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter2.dateFormat = "MM"
+            let che = Int(dateFormatter2.string(from: dateFormatter.date(from: day)!))!
+            print(che)
+//            print(dateFormatter)
         }.disposed(by: disposeBag)
         
     }
@@ -161,7 +175,6 @@ private extension SelectAreaMainViewController {
 private extension SelectAreaMainViewController {
     private func goView(_ name: String) {
         var nextVC = UINavigationController()
-        print(name)
         switch name {
         case "Start":
             nextVC = UINavigationController(rootViewController: SelectAreaStartViewController())
@@ -183,3 +196,4 @@ private extension SelectAreaMainViewController {
         self.present(nextVC, animated: true)
     }
 }
+
