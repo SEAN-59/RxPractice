@@ -10,7 +10,14 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class MainViewController: UIViewController {
+enum ViewName{
+    case Calculator
+    case D_Day
+    case SelectArea
+    case Stargram
+}
+
+final class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     private lazy var contentView = UIView()
@@ -36,8 +43,8 @@ class MainViewController: UIViewController {
         [
             choiceCalculatorBtn,
             choiceDDayBtn,
-            choiceSelectAreaBtn
-            
+            choiceSelectAreaBtn,
+            choiceStargramBtn
         ].forEach { stackView.addArrangedSubview($0) }
         
         return stackView
@@ -83,6 +90,25 @@ class MainViewController: UIViewController {
         
         return button
     }()
+    
+    private lazy var choiceStargramBtn: ChangeButtonClicked = {
+        let button = ChangeButtonClicked()
+        
+        button.isSizeUpBtn = true
+        
+        button.setTitle("Stargram", for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20.0, weight: .bold)
+        button.backgroundColor = .systemBackground
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 10.0
+        button.layer.borderColor = UIColor.label.cgColor
+        button.contentEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
+        
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
@@ -95,15 +121,19 @@ private extension MainViewController {
     private func bind() {
         
         choiceCalculatorBtn.rx.tap.bind{
-            self.openCalculator()
+            self.openViewController(.Calculator)
         }.disposed(by: disposeBag)
         
         choiceDDayBtn.rx.tap.bind {
-            self.openD_Day()
+            self.openViewController(.D_Day)
         }.disposed(by: disposeBag)
         
         choiceSelectAreaBtn.rx.tap.bind {
-            self.openSelectArea()
+            self.openViewController(.SelectArea)
+        }.disposed(by: disposeBag)
+        
+        choiceStargramBtn.rx.tap.bind {
+            self.openViewController(.Stargram)
         }.disposed(by: disposeBag)
         
     }
@@ -140,22 +170,40 @@ private extension MainViewController {
 }
 
 private extension MainViewController {
-    private func openCalculator() {
-        let nextVC = CalculatorViewController()
-        nextVC.modalTransitionStyle = .coverVertical
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC,animated: true)
-    }
+//    private func openCalculator() {
+//        let nextVC = CalculatorViewController()
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC,animated: true)
+//    }
+//
+//    private func openD_Day() {
+//        let nextVC = UINavigationController(rootViewController: D_DayViewController())
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC,animated: true)
+//    }
+//
+//    private func openSelectArea() {
+//        let nextVC = UINavigationController(rootViewController: SelectAreaMainViewController())
+//        nextVC.modalTransitionStyle = .coverVertical
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC,animated: true)
+//    }
     
-    private func openD_Day() {
-        let nextVC = UINavigationController(rootViewController: D_DayViewController())
-        nextVC.modalTransitionStyle = .coverVertical
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC,animated: true)
-    }
-    
-    private func openSelectArea() {
-        let nextVC = UINavigationController(rootViewController: SelectAreaMainViewController())
+    private func openViewController(_ name: ViewName) {
+        var nextVC = UINavigationController()
+        switch name{
+        case .Calculator:
+            nextVC = UINavigationController(rootViewController: CalculatorViewController())
+        case .D_Day:
+            nextVC = UINavigationController(rootViewController: D_DayViewController())
+        case .SelectArea:
+            nextVC = UINavigationController(rootViewController: SelectAreaMainViewController())
+        case .Stargram:
+            nextVC = UINavigationController(rootViewController: StarMainViewController())
+        }
+        
         nextVC.modalTransitionStyle = .coverVertical
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC,animated: true)
